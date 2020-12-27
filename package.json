@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/pome-ta/pometa-zenn-contents#readme",
   "dependencies": {
-    "zenn-cli": "^0.1.63"
+    "zenn-cli": "^0.1.65"
   }
 }
