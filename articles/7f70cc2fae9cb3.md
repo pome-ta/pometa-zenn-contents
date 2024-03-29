@@ -110,5 +110,5 @@ class Handler(NSObject):
 ## print 関係
 
 :::message
-追記予定
+追記予定 （分割するかも）
 :::
