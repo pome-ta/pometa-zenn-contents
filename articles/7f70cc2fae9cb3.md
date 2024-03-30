@@ -1,12 +1,12 @@
 ---
-title: "objc_util からrubicon-objc への書き換え（Class宣言）"
+title: "【class】objc_util からrubicon-objc への書き換え【宣言】"
 emoji: "📲"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["Python", "iOS", "objectivec", "Pythonista3", "rubicon"]
+topics: ["Python", "iOS", "objectivec", "Pythonista3", "rubicon", ]
 published: true
 ---
 
-# objc_util からrubicon-objc へ乗り換える
+## objc_util からrubicon-objc へ乗り換える
 
 Pythonista3 が、3.4 になったタイミングでobjc_util の[`ObjcBlock`](https://omz-software.com/pythonista/docs-3.4/py3/ios/objc_util.html#objc_util.ObjCBlock) の処理が落ちる。
 block を使わずに実装する。といっても限度があるし、Python 側で処理。というよりも内部の問題ぽい（深くは調べて（られ）ない）ので、rubicon-objc へ移行することにした。
@@ -16,7 +16,9 @@ block を使わずに実装する。といっても限度があるし、Python �
 
 よく使いつつ、毎回過去のコードを見直す内容をメモ的に書いていく。
 
-## Class
+今回はClass 宣言:
+
+## 書き換え
 
 ### objc_util
 
@@ -98,6 +100,14 @@ class Handler(NSObject):
 サンプルコード`NSObject` の部分を、継承させたいClass にすれば継承される。`ObjCClass('呼びたいclass')` で呼び出しておくことは必要。
 
 [ObjCClass | rubicon.objc.api — The high-level Rubicon API - Rubicon 0.4.7](https://rubicon-objc.readthedocs.io/en/stable/reference/rubicon-objc-api.html#rubicon.objc.api.ObjCClass)
+
+## 所感
+
+rubicon のPythonic なClass 宣言は、objc_util でのsubClass 生成よりもハードルは低い印象。
+しかし、rubicon では`__init__` が隠蔽されていたり、デコレータをつけたりと、仕様の理解度合いで、細かい実装の可能性が変わっていきそうな予感がしている。
+一方objc_util は、素朴で無骨な「なんとかPython で操作できる状態のオブジェクト」を提供している印象があり、状態の管理をどっち（モジュールか自分自身）が持つかの認識判断が必要だと感じた。
+
+rubicon は現在もアクティブに更新され続けているので、objc_util のソースとの差異（過去のrubicon をベースにobjc_util が作られている）を眺めつつ、過去から今までの変遷を追っかけることで、理解が深まるかもしれない。
 
 ## delegate
 
