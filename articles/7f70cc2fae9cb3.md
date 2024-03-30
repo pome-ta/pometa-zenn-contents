@@ -1,5 +1,5 @@
 ---
-title: "【class】objc_util からrubicon-objc への書き換え【宣言】"
+title: "【class】objc_util からrubicon-objc へ移行【宣言】"
 emoji: "📲"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Python", "iOS", "objectivec", "Pythonista3", "rubicon", ]
@@ -12,7 +12,9 @@ Pythonista3 が、3.4 になったタイミングでobjc_util の[`ObjcBlock`](h
 block を使わずに実装する。といっても限度があるし、Python 側で処理。というよりも内部の問題ぽい（深くは調べて（られ）ない）ので、rubicon-objc へ移行することにした。
 
 [objc_util — Utilities for bridging Objective-C APIs — Pythonista Documentation](https://omz-software.com/pythonista/docs-3.4/py3/ios/objc_util.html)
+@[card](https://omz-software.com/pythonista/docs-3.4/py3/ios/objc_util.html)
 [beeware/rubicon-objc: A bridge interface between Python and Objective-C.](https://github.com/beeware/rubicon-objc)
+@[card](https://github.com/beeware/rubicon-objc)
 
 よく使いつつ、毎回過去のコードを見直す内容をメモ的に書いていく。
 
@@ -76,6 +78,7 @@ docs にもあるが、無理にsubClass 化する必要はない。
 ### rubicon-objc
 
 [Tutorial 2 - Writing your own class - Rubicon 0.4.7](https://rubicon-objc.readthedocs.io/en/stable/tutorial/tutorial-2.html)
+@[card](https://rubicon-objc.readthedocs.io/en/stable/tutorial/tutorial-2.html)
 
 なんと、宣言できる。
 
@@ -100,6 +103,7 @@ class Handler(NSObject):
 サンプルコード`NSObject` の部分を、継承させたいClass にすれば継承される。`ObjCClass('呼びたいclass')` で呼び出しておくことは必要。
 
 [ObjCClass | rubicon.objc.api — The high-level Rubicon API - Rubicon 0.4.7](https://rubicon-objc.readthedocs.io/en/stable/reference/rubicon-objc-api.html#rubicon.objc.api.ObjCClass)
+@[card](https://rubicon-objc.readthedocs.io/en/stable/reference/rubicon-objc-api.html#rubicon.objc.api.ObjCClass)
 
 ## 所感
 
