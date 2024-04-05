@@ -2,7 +2,7 @@
 title: "【class】objc_util からrubicon-objc へ移行【宣言】"
 emoji: "📲"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["Python", "iOS", "objectivec", "Pythonista3", "rubicon", ]
+topics: ["Python", "iOS", "objectivec", "Pythonista3", "rubiconobjc", ]
 published: true
 ---
 
