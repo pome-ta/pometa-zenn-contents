@@ -2,14 +2,14 @@
   "plugins": {},
   "filters": {},
   "rules": {
+    "preset-japanese": true,
     "preset-ja-spacing": true,
+    "textlint-rule-no-dropping-the-ra": true,
+    "spellcheck-tech-word": true,
     "preset-ja-technical-writing": {
       "ja-no-mixed-period": {
         "allowPeriodMarks": [":"]
       }
-    },
-    "spellcheck-tech-word": true,
-    "textlint-rule-no-dropping-the-ra": true,
-    "preset-japanese": true
+    }
   }
 }
