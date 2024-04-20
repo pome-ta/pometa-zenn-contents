@@ -17,7 +17,7 @@ blockを使わずに実装する。といっても限度があるし、Python側
 [beeware/rubicon-objc: A bridge interface between Python and Objective-C.](https://github.com/beeware/rubicon-objc)
 @[card](https://github.com/beeware/rubicon-objc)
 
-よく使いつつ、毎回過去のコードを見直す内容をメモ的に書いていく。
+よく使いながら、毎回過去のコードを見直す内容をメモ的に書いていく。
 
 今回はClass宣言:
 
@@ -109,8 +109,8 @@ class Handler(NSObject):
 ## 所感
 
 rubiconのPythonicなClass宣言は、objc_utilでのsubClass生成よりもハードルは低い印象。
-しかし、rubiconでは`__init__` が隠蔽されていたり、デコレータをつけたり。仕様の理解度合いで、細かい実装の可能性が変わっていきそうな予感がしている。
-一方objc_utilは、素朴で無骨な「なんとかPythonで操作できる状態のオブジェクト」を提供している印象があり、状態の管理をどっち（モジュールか自分自身）が持つかの認識判断が必要だと感じた。
+しかし、rubiconでは`__init__` が隠蔽されていたり、デコレータを付け足したり。仕様の理解度合いで、細かい実装の可能性が変わっていきそうな予感がしている。
+一方objc_utilは、素朴で無骨な「なんとかPythonで操作できる状態のオブジェクト」を提供している印象があり、状態の管理をどっち（モジュールか自分自身）がもつかの認識判断が必要だと感じた。
 
 rubiconは現在もアクティブに更新され続けています。objc_utilのソースとの差異（過去のrubiconをベースにobjc_utilが作られている）を眺めつつ、過去から今までの変遷を追っかけることで、理解が深まりますね。
 

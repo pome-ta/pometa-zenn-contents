@@ -5,11 +5,11 @@
     "preset-ja-spacing": true,
     "preset-ja-technical-writing": {
       "ja-no-mixed-period": {
-        "allowPeriodMarks": [
-          ":"
-        ]
+        "allowPeriodMarks": [":"]
       }
     },
-    "spellcheck-tech-word": true
+    "spellcheck-tech-word": true,
+    "textlint-rule-no-dropping-the-ra": true,
+    "preset-japanese": true
   }
 }
