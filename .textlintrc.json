@@ -3,7 +3,13 @@
   "filters": {},
   "rules": {
     "preset-ja-spacing": true,
-    "preset-ja-technical-writing": true,
+    "preset-ja-technical-writing": {
+      "ja-no-mixed-period": {
+        "allowPeriodMarks": [
+          ":"
+        ]
+      }
+    },
     "spellcheck-tech-word": true
   }
 }
