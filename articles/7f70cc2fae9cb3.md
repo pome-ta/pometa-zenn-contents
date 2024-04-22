@@ -21,6 +21,9 @@ blockを使わずに実装する。といっても限度があるし、Python側
 
 今回はClass宣言:
 
+プロトコル・デリゲートについては、以下を参照。
+@[card](https://zenn.dev/pometa/articles/5861bc3dc2f2e4)
+
 ## 書き換え
 
 ### objc_util
@@ -99,7 +102,7 @@ class Handler(NSObject):
         return v / 2.0
 ```
 
-デコレーション`@objc_method` をつける。initializeのmethodはreturnで`self` を返す。引数には型をつける。など、rubicon上でのルール（エラーでしっかり警告が出る）はあるが、PythonのClass宣言です。
+デコレーション`@objc_method` をつける。initializeのmethodはreturnで`self` を返す。引数には型をつける。など、rubicon上でのルール（エラーでしっかり警告が出る）はあるが、PythonのClass宣言。
 
 サンプルコード`NSObject` の部分を、継承させたいClassにすれば継承される。`ObjCClass('呼びたいclass')` で呼び出しておくことは必要。
 
@@ -112,18 +115,4 @@ rubiconのPythonicなClass宣言は、objc_utilでのsubClass生成よりもハ�
 しかし、rubiconでは`__init__` が隠蔽されていたり、デコレータを付け足したり。仕様の理解度合いで、細かい実装の可能性が変わっていきそうな予感がしている。
 一方objc_utilは、素朴で無骨な「なんとかPythonで操作できる状態のオブジェクト」を提供している印象があり、状態の管理をどっち（モジュールか自分自身）がもつかの認識判断が必要だと感じた。
 
-rubiconは現在もアクティブに更新され続けています。objc_utilのソースとの差異（過去のrubiconをベースにobjc_utilが作られている）を眺めつつ、過去から今までの変遷を追っかけることで、理解が深まりますね。
-
-## delegate
-
-### objc_util
-
-### rubicon
-
-## main Thread
-
-## print 関係
-
-:::message
-追記予定（分割するかも）。
-:::
+rubiconは現在もアクティブに更新され続けています。objc_utilのソースとの差異（過去のrubiconをベースにobjc_utilが作られている）を眺めつつ、過去から今までの変遷を追うことで理解が深まる。
