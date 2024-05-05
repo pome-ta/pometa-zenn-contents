@@ -1,5 +1,5 @@
 ---
-title: "Rubicon-ObjC で"
+title: "Rubicon-ObjC でtable 関係"
 emoji: "🔥"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
