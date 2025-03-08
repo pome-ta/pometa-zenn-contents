@@ -3,13 +3,18 @@
   "filters": {},
   "rules": {
     "preset-japanese": true,
-    "preset-ja-spacing": true,
+
     "@textlint-ja/no-synonyms": true,
     "textlint-rule-no-dropping-the-ra": true,
     "spellcheck-tech-word": true,
     "preset-ja-technical-writing": {
       "ja-no-mixed-period": {
         "allowPeriodMarks": [":"]
+      }
+    },
+    "preset-ja-spacing": {
+      "ja-space-between-half-and-full-width": {
+        "space": "always"
       }
     }
   }
