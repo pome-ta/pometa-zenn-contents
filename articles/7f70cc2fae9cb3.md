@@ -6,6 +6,10 @@ topics: ["Python", "iOS", "objectivec", "Pythonista3", "rubiconobjc", ]
 published: true
 ---
 
+:::message
+オリジナルは日本語で書かれました。
+:::
+
 ## objc_util からrubicon-objc へ乗り換える
 
 Pythonista3が、3.4になったタイミングでobjc_utilの[`ObjcBlock`](https://omz-software.com/pythonista/docs-3.4/py3/ios/objc_util.html#objc_util.ObjCBlock) の処理が落ちる。
