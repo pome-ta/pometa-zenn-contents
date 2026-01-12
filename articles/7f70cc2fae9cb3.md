@@ -2,7 +2,7 @@
 title: "【class】objc_util からrubicon-objc へ移行【宣言】"
 emoji: "📲"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["Python", "iOS", "objectivec", "Pythonista3", "rubiconobjc", ]
+topics: ["Python", "iOS", "objectivec", "Pythonista3", "rubiconobjc"]
 published: true
 ---
 
@@ -10,10 +10,10 @@ published: true
 オリジナルは日本語で書かれました。
 :::
 
-## objc_util からrubicon-objc へ乗り換える
+## objc_util から rubicon-objc へ乗り換える
 
-Pythonista3が、3.4になったタイミングでobjc_utilの[`ObjcBlock`](https://omz-software.com/pythonista/docs-3.4/py3/ios/objc_util.html#objc_util.ObjCBlock) の処理が落ちる。
-blockを使わずに実装する。といっても限度があるし、Python側で処理。というよりも内部の問題ぽい（深くは調べて（られ）ない）ので、rubicon-objcへ移行することにした。
+Pythonista3 が、3.4 になったタイミングで objc_util の[`ObjcBlock`](https://omz-software.com/pythonista/docs-3.4/py3/ios/objc_util.html#objc_util.ObjCBlock) の処理が落ちる。
+block を使わずに実装する。といっても限度があるし、Python 側で処理。というよりも内部の問題ぽい（深くは調べて（られ）ない）ので、rubicon-objc へ移行することにした。
 
 [objc_util — Utilities for bridging Objective-C APIs — Pythonista Documentation](https://omz-software.com/pythonista/docs-3.4/py3/ios/objc_util.html)
 
@@ -23,7 +23,7 @@ blockを使わずに実装する。といっても限度があるし、Python側
 
 よく使いながら、毎回過去のコードを見直す内容をメモ的に書いていく。
 
-今回はClass宣言:
+今回は Class 宣言:
 
 プロトコル・デリゲートについては、以下を参照。
 @[card](https://zenn.dev/pometa/articles/5861bc3dc2f2e4)
@@ -38,7 +38,7 @@ blockを使わずに実装する。といっても限度があるし、Python側
 sub_class = objc_util.create_objc_class(name, superclass=NSObject, methods=[], classmethods=[], protocols=[], debug=True)
 ```
 
-PythonのClass継承のように書けず、宣言っぽさも希薄な印象。
+Python の Class 継承のように書けず、宣言っぽさも希薄な印象。
 独自の書き方として、`Class` 宣言をラップするイメージで書いていた:
 
 ```python: 雑な例.py
@@ -80,8 +80,8 @@ class SubClass:
 
 ```
 
-意味ない部分も多いかも、コードの視認性として、Classのブロックとしてまとめたかった。
-docsにもあるが、無理にsubClass化する必要はない。
+意味ない部分も多いかも、コードの視認性として、Class のブロックとしてまとめたかった。
+docs にもあるが、無理に subClass 化する必要はない。
 
 ### rubicon-objc
 
@@ -106,17 +106,17 @@ class Handler(NSObject):
         return v / 2.0
 ```
 
-デコレーション`@objc_method` をつける。initializeのmethodはreturnで`self` を返す。引数には型をつける。など、rubicon上でのルール（エラーでしっかり警告が出る）はあるが、PythonのClass宣言。
+デコレーション`@objc_method` をつける。initialize の method は return で`self` を返す。引数には型をつける。など、rubicon 上でのルール（エラーでしっかり警告が出る）はあるが、Python の Class 宣言。
 
-サンプルコード`NSObject` の部分を、継承させたいClassにすれば継承される。`ObjCClass('呼びたいclass')` で呼び出しておくことは必要。
+サンプルコード`NSObject` の部分を、継承させたい Class にすれば継承される。`ObjCClass('呼びたいclass')` で呼び出しておくことは必要。
 
 [ObjCClass | rubicon.objc.api — The high-level Rubicon API - Rubicon 0.4.7](https://rubicon-objc.readthedocs.io/en/stable/reference/rubicon-objc-api.html#rubicon.objc.api.ObjCClass)
 @[card](https://rubicon-objc.readthedocs.io/en/stable/reference/rubicon-objc-api.html#rubicon.objc.api.ObjCClass)
 
 ## 所感
 
-rubiconのPythonicなClass宣言は、objc_utilでのsubClass生成よりもハードルは低い印象。
-しかし、rubiconでは`__init__` が隠蔽されていたり、デコレータを付け足したり。仕様の理解度合いで、細かい実装の可能性が変わっていきそうな予感がしている。
-一方objc_utilは、素朴で無骨な「なんとかPythonで操作できる状態のオブジェクト」を提供している印象があり、状態の管理をどっち（モジュールか自分自身）がもつかの認識判断が必要だと感じた。
+rubicon の Pythonic な Class 宣言は、objc_util での subClass 生成よりもハードルは低い印象。
+しかし、rubicon では`__init__` が隠蔽されていたり、デコレータを付け足したり。仕様の理解度合いで、細かい実装の可能性が変わっていきそうな予感がしている。
+一方 objc_util は、素朴で無骨な「なんとか Python で操作できる状態のオブジェクト」を提供している印象があり、状態の管理をどっち（モジュールか自分自身）がもつかの認識判断が必要だと感じた。
 
-rubiconは現在もアクティブに更新され続けています。objc_utilのソースとの差異（過去のrubiconをベースにobjc_utilが作られている）を眺めつつ、過去から今までの変遷を追うことで理解が深まる。
+rubicon は現在もアクティブに更新され続けています。objc_util のソースとの差異（過去の rubicon をベースに objc_util が作られている）を眺めつつ、過去から今までの変遷を追うことで理解が深まる。
