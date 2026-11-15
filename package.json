@@ -13,9 +13,9 @@
     "zenn-cli": "^0.5.15"
   },
   "devDependencies": {
+    "textlint": "^16.0.0",
     "@textlint-ja/textlint-rule-no-synonyms": "^1.3.0",
     "sudachi-synonyms-dictionary": "^20.0.0",
-    "textlint": "^14.0.5",
     "textlint-rule-no-dropping-the-ra": "^3.0.0",
     "textlint-rule-preset-ja-spacing": "^3.0.4",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
